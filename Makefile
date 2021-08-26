@@ -15,4 +15,7 @@ authors:
 
 all: clean authors messages docs
 
+test:
+	coverage run runtests/manage.py test -v3 --noinput actstream testapp testapp_nested
+
 .PHONY: all
