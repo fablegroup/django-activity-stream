@@ -28,7 +28,7 @@ class GFKQuerySet(QuerySet):
     def fetch_generic_relations(self, *args):
         qs = self._clone()
 
-        if not settings.FETCH_RELATIONS:
+        if not settings.FETCH_RELATIONS or not settings.USER_STREAM_FETCH:
             return qs
 
         private_fields = self.model._meta.private_fields

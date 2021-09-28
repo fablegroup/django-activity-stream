@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import uuid
+
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
@@ -110,6 +112,10 @@ class Action(models.Model):
     timestamp = models.DateTimeField(default=now, db_index=True)
 
     public = models.BooleanField(default=True, db_index=True)
+
+    deleted = models.BooleanField(default=False, db_index=True)
+
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
     objects = actstream_settings.get_action_manager()
 
