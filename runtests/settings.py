@@ -39,11 +39,11 @@ if os.environ.get('GITHUB_WORKFLOW', False):
                 'PORT': '5432',
             },
         }
-    else:
+    elif 'file' in DATABASE_ENGINE:
         DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': ':memory:',
+                'NAME': 'db.sqlite3',
             },
         }
 
@@ -101,6 +101,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'urls'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.admin',
@@ -108,6 +110,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.admindocs',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
     'django.contrib.messages',
 
     'actstream',
@@ -115,6 +118,9 @@ INSTALLED_APPS = (
     'testapp',
     'testapp_nested',
 )
+
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 ACTSTREAM_SETTINGS = {
     'MANAGER': 'testapp.streams.MyActionManager',
