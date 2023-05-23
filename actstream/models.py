@@ -119,6 +119,8 @@ class Action(models.Model):
 
     version = models.PositiveIntegerField(null=True, blank=True, db_index=True)
 
+    click_counter = models.PositiveIntegerField(default=0, db_index=True)
+
     objects = actstream_settings.get_action_manager()
 
     class Meta:
