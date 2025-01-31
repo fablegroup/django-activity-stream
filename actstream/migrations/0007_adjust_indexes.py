@@ -28,12 +28,14 @@ class Migration(migrations.Migration):
             model_name="action",
             index=models.Index(
                 fields=["action_object_object_id", "action_object_content_type_id"],
+                name="actstre_act_objid_typeid_idx",
             ),
         ),
         AddIndexConcurrently(
             model_name="action",
             index=models.Index(
                 fields=["target_object_id", "target_content_type_id"],
+                name="actstre_act_trgtid_typeid_idx",
             ),
         ),
     ]
