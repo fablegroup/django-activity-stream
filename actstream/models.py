@@ -127,6 +127,21 @@ class Action(models.Model):
 
     class Meta:
         ordering = ('-timestamp',)
+        indexes = [
+            models.Index(
+                fields=["actor_object_id"],
+                condition=models.Q(deleted=False),
+                name="actstream_action_actor_obj_idx",
+            ),
+            models.Index(
+                fields=["action_object_object_id", "action_object_content_type_id"],
+                name="actstre_act_objid_typeid_idx",
+            ),
+            models.Index(
+                fields=["target_object_id", "target_content_type_id"],
+                name="actstre_act_trgtid_typeid_idx",
+            ),
+        ]
 
     def __str__(self):
         ctx = {
