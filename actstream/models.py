@@ -121,6 +121,8 @@ class Action(models.Model):
 
     click_counter = models.PositiveIntegerField(default=0, db_index=True)
 
+    share_counter = models.PositiveIntegerField(default=0, db_index=True)
+
     objects = actstream_settings.get_action_manager()
 
     class Meta:
