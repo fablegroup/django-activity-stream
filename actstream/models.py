@@ -73,7 +73,6 @@ class Action(models.Model):
         <a href="http://oebfare.com/">brosner</a> commented on <a href="http://github.com/pinax/pinax">pinax/pinax</a> 2 hours ago
 
     """
-
     actor_content_type = models.ForeignKey(
         ContentType, related_name='actor',
         on_delete=models.CASCADE, db_index=True

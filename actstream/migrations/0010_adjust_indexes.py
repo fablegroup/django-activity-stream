@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     atomic = False
 
     dependencies = [
-        ("actstream", "0006_remove_uuid_null"),
+        ("actstream", "0009_add_share_counter_field"),
     ]
 
     operations = [
