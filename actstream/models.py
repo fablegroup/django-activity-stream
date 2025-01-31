@@ -117,6 +117,8 @@ class Action(models.Model):
 
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
+    version = models.PositiveIntegerField(null=True, blank=True, db_index=True)
+
     objects = actstream_settings.get_action_manager()
 
     class Meta:
