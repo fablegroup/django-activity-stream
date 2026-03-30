@@ -111,7 +111,7 @@ class Action(models.Model):
 
     timestamp = models.DateTimeField(default=now, db_index=True)
 
-    public = models.BooleanField(default=True, db_index=True)
+    public = models.BooleanField(default=True)
 
     deleted = models.BooleanField(default=False, db_index=True)
 
@@ -119,9 +119,9 @@ class Action(models.Model):
 
     version = models.PositiveIntegerField(null=True, blank=True, db_index=True)
 
-    click_counter = models.PositiveIntegerField(default=0, db_index=True)
+    click_counter = models.PositiveIntegerField(default=0)
 
-    share_counter = models.PositiveIntegerField(default=0, db_index=True)
+    share_counter = models.PositiveIntegerField(default=0)
 
     objects = actstream_settings.get_action_manager()
 
